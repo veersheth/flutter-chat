@@ -181,8 +181,8 @@ class _RegisterPageState extends State<RegisterPage> {
           //save shared preference state
 
           await HelperFunctions.saveUserLoggedInStatus(value);
-          await HelperFunctions.saveUserNameSF(email);
-          await HelperFunctions.saveUserEmailSF(fullName);
+          await HelperFunctions.saveUserNameSF(fullName);
+          await HelperFunctions.saveUserEmailSF(email);
 
           nextScreenReplace(context, const HomePage());
         } else {

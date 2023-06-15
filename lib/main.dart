@@ -58,14 +58,8 @@ class _MainAppState extends State<MainApp> {
     return MaterialApp(
       theme: ThemeData(
         useMaterial3: true,
-        primaryColor: Constants().PrimaryColor,
-        dialogTheme: DialogTheme(
-          surfaceTintColor: Colors.white,
-          contentTextStyle: const TextStyle(
-            color: Colors.black,
-          ),
-          iconColor: Constants().PrimaryColor,
-        ),
+        // primaryColor: Constants().PrimaryColor,
+        // dialogTheme: const DialogTheme(surfaceTintColor: Colors.white),
       ),
       debugShowCheckedModeBanner: false,
       home: _isSignedIn ? const HomePage() : const LoginPage(),

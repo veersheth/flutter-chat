@@ -6,6 +6,7 @@ class Constants {
   static String messagingSenderID = "1048773861013";
   static String projectID = "flutterchat-40baf";
 
-  final PrimaryColor = Color.fromARGB(255, 252, 112, 66);
+  final PrimaryColor = Color.fromARGB(255, 255, 142, 104);
+  final PrimaryBackgroundColor = Color.fromARGB(255, 255, 195, 175);
   final DialogBackgroundColor = Color.fromARGB(255, 255, 252, 252);
 }

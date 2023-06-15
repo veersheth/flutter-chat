@@ -17,6 +17,7 @@ class _HomePageState extends State<HomePage> {
   String email = "";
   AuthService authService = AuthService();
 
+  @override
   void initState() {
     super.initState();
     gettingUserData();
@@ -53,6 +54,17 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       drawer: const DrawerWidget(),
+      body: groupList(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          addGroupDialog(context);
+        },
+        child: const Icon(Icons.add_rounded, size: 30),
+      ),
     );
   }
+
+  addGroupDialog(BuildContext context) {}
+
+  groupList() {}
 }

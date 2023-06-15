@@ -4,7 +4,6 @@ import 'package:flutter_chat_app/pages/login_page.dart';
 import 'package:flutter_chat_app/pages/profile_page.dart';
 import 'package:flutter_chat_app/service/auth_service.dart';
 import 'package:flutter_chat_app/widgets/widgets.dart';
-
 import '../pages/home_page.dart';
 
 class DrawerWidget extends StatefulWidget {
@@ -98,9 +97,13 @@ class _DrawerWidget extends State<DrawerWidget> {
                             nextScreenReplace(context, const LoginPage());
                           });
                         },
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStatePropertyAll(
+                              Theme.of(context).primaryColor),
+                        ),
                         child: Text("Okay",
                             style: TextStyle(
-                                color: Theme.of(context).primaryColor)),
+                                color: Theme.of(context).canvasColor)),
                       ),
                     ],
                   );

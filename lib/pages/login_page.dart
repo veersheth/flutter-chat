@@ -171,7 +171,7 @@ class _LoginPageState extends State<LoginPage> {
           nextScreenReplace(context, const HomePage());
         } else {
           setState(() {
-            showSnackbar(context, value.message, Colors.red.shade400);
+            showSnackbar(context, value.message);
             _isLoading = false;
           });
         }

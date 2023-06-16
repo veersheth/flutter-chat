@@ -184,6 +184,7 @@ class _RegisterPageState extends State<RegisterPage> {
           await HelperFunctions.saveUserNameSF(fullName);
           await HelperFunctions.saveUserEmailSF(email);
 
+          // ignore: use_build_context_synchronously
           nextScreenReplace(context, const HomePage());
         } else {
           setState(() {

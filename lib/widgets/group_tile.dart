@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_app/widgets/widgets.dart';
+
+import '../pages/chat_page.dart';
 
 class GroupTile extends StatefulWidget {
   final String userName;
@@ -18,9 +21,39 @@ class GroupTile extends StatefulWidget {
 class _GroupTileState extends State<GroupTile> {
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(widget.groupId),
-      subtitle: Text(widget.groupName),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+      child: GestureDetector(
+        onTap: () {
+          nextScreen(
+              context,
+              ChatPage(
+                groupId: widget.groupId,
+                groupName: widget.groupName,
+                userName: widget.userName,
+              ));
+        },
+        child: ListTile(
+          leading: CircleAvatar(
+            radius: 30,
+            backgroundColor: Theme.of(context).primaryColor,
+            child: Text(
+              widget.groupName.substring(0, 1).toUpperCase(),
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Theme.of(context).canvasColor,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          title: Text(
+            widget.groupName,
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          subtitle: Text("Join the conversation as ${widget.userName}",
+              style: TextStyle(fontSize: 13)),
+        ),
+      ),
     );
   }
 }

@@ -5,7 +5,6 @@ import 'package:flutter_chat_app/pages/home_page.dart';
 import 'package:flutter_chat_app/pages/login_page.dart';
 import 'package:flutter_chat_app/service/auth_service.dart';
 import 'package:flutter_chat_app/widgets/widgets.dart';
-import 'register_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});

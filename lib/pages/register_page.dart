@@ -26,7 +26,7 @@ class _RegisterPageState extends State<RegisterPage> {
       body: _isLoading
           ? Center(
               child: CircularProgressIndicator(
-              color: Theme.of(context).primaryColor,
+              color: Theme.of(context).colorScheme.primary,
             ))
           : SafeArea(
               child: Padding(
@@ -64,7 +64,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             labelText: "Full Name",
                             prefixIcon: Icon(
                               Icons.person_rounded,
-                              color: Theme.of(context).primaryColor,
+                              color: Theme.of(context).colorScheme.primary,
                             ),
                           ),
                           onChanged: (val) {
@@ -86,7 +86,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             labelText: "Email",
                             prefixIcon: Icon(
                               Icons.email_rounded,
-                              color: Theme.of(context).primaryColor,
+                              color: Theme.of(context).colorScheme.primary,
                             ),
                           ),
                           onChanged: (val) {
@@ -109,7 +109,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             labelText: "Password",
                             prefixIcon: Icon(
                               Icons.lock_rounded,
-                              color: Theme.of(context).primaryColor,
+                              color: Theme.of(context).colorScheme.primary,
                             ),
                           ),
                           validator: (val) {
@@ -135,7 +135,8 @@ class _RegisterPageState extends State<RegisterPage> {
                               register();
                             },
                             style: ElevatedButton.styleFrom(
-                                backgroundColor: Theme.of(context).primaryColor,
+                                backgroundColor:
+                                    Theme.of(context).colorScheme.primary,
                                 foregroundColor: Colors.white,
                                 elevation: 0),
                             child: const Text("Login"),

@@ -29,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
       body: _isLoading
           ? Center(
               child: CircularProgressIndicator(
-                color: Theme.of(context).primaryColor,
+                color: Theme.of(context).colorScheme.primary,
               ),
             )
           : SafeArea(
@@ -68,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                             labelText: "Email",
                             prefixIcon: Icon(
                               Icons.email_rounded,
-                              color: Theme.of(context).primaryColor,
+                              color: Theme.of(context).colorScheme.primary,
                             ),
                           ),
                           onChanged: (val) {
@@ -91,7 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                             labelText: "Password",
                             prefixIcon: Icon(
                               Icons.lock_rounded,
-                              color: Theme.of(context).primaryColor,
+                              color: Theme.of(context).colorScheme.primary,
                             ),
                           ),
                           validator: (val) {
@@ -117,7 +117,8 @@ class _LoginPageState extends State<LoginPage> {
                               login();
                             },
                             style: ElevatedButton.styleFrom(
-                                backgroundColor: Theme.of(context).primaryColor,
+                                backgroundColor:
+                                    Theme.of(context).colorScheme.primary,
                                 foregroundColor: Colors.white,
                                 elevation: 0),
                             child: const Text("Login"),

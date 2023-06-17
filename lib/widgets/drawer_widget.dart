@@ -99,11 +99,13 @@ class _DrawerWidget extends State<DrawerWidget> {
                         },
                         style: ButtonStyle(
                           backgroundColor: MaterialStatePropertyAll(
-                              Theme.of(context).primaryColor),
+                              Theme.of(context).colorScheme.primary),
                         ),
                         child: Text("Okay",
                             style: TextStyle(
-                                color: Theme.of(context).canvasColor)),
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .onInverseSurface)),
                       ),
                     ],
                   );
@@ -137,7 +139,7 @@ class DrawerListItem extends StatelessWidget {
       leading: Icon(
         icon,
         size: 20,
-        color: Theme.of(context).primaryColor,
+        color: Theme.of(context).colorScheme.primary,
       ),
       title: Text(title),
     );

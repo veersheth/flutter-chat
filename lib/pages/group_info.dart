@@ -63,19 +63,19 @@ class _GroupInfoState extends State<GroupInfo> {
               padding: const EdgeInsets.all(20),
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor.withOpacity(0.2),
+                color: Theme.of(context).colorScheme.primaryContainer,
                 borderRadius: BorderRadius.circular(40),
               ),
               child: Row(
                 children: [
                   CircleAvatar(
                     radius: 30,
-                    backgroundColor: Theme.of(context).primaryColor,
+                    backgroundColor: Theme.of(context).colorScheme.primary,
                     child: Text(
                       widget.groupName.substring(0, 1).toUpperCase(),
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: Theme.of(context).canvasColor,
+                        color: Theme.of(context).colorScheme.onInverseSurface,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -95,7 +95,7 @@ class _GroupInfoState extends State<GroupInfo> {
             ),
             const SizedBox(height: 20),
             Divider(
-              color: Theme.of(context).focusColor,
+              color: Theme.of(context).colorScheme.outlineVariant,
               indent: 25,
               endIndent: 25,
             ),
@@ -123,14 +123,15 @@ class _GroupInfoState extends State<GroupInfo> {
                     child: ListTile(
                       leading: CircleAvatar(
                         radius: 30,
-                        backgroundColor: Theme.of(context).primaryColor,
+                        backgroundColor: Theme.of(context).colorScheme.primary,
                         child: Text(
                           getName(snapshot.data['members'][index])
                               .substring(0, 1)
                               .toUpperCase(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: Theme.of(context).canvasColor,
+                            color:
+                                Theme.of(context).colorScheme.onInverseSurface,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -151,7 +152,7 @@ class _GroupInfoState extends State<GroupInfo> {
         } else {
           return Center(
               child: CircularProgressIndicator(
-            color: Theme.of(context).primaryColor,
+            color: Theme.of(context).colorScheme.primary,
           ));
         }
       },

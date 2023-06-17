@@ -22,8 +22,9 @@ class _GroupTileState extends State<GroupTile> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-      child: GestureDetector(
+      padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(20),
         onTap: () {
           nextScreen(
               context,
@@ -33,26 +34,31 @@ class _GroupTileState extends State<GroupTile> {
                 userName: widget.userName,
               ));
         },
-        child: ListTile(
-          leading: CircleAvatar(
-            radius: 30,
-            backgroundColor: Theme.of(context).primaryColor,
-            child: Text(
-              widget.groupName.substring(0, 1).toUpperCase(),
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Theme.of(context).canvasColor,
-                fontWeight: FontWeight.w600,
+        child: Column(children: [
+          SizedBox(height: 5),
+          ListTile(
+            dense: false,
+            leading: CircleAvatar(
+              radius: 30,
+              backgroundColor: Theme.of(context).colorScheme.primary,
+              child: Text(
+                widget.groupName.substring(0, 1).toUpperCase(),
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.onInverseSurface,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
+            title: Text(
+              widget.groupName,
+              style: TextStyle(fontWeight: FontWeight.w500),
+            ),
+            subtitle: Text("Join the conversation as ${widget.userName}",
+                style: TextStyle(fontSize: 13)),
           ),
-          title: Text(
-            widget.groupName,
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          subtitle: Text("Join the conversation as ${widget.userName}",
-              style: TextStyle(fontSize: 13)),
-        ),
+          SizedBox(height: 5),
+        ]),
       ),
     );
   }

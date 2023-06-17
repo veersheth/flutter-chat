@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
           "Flutter Chat",
           style: TextStyle(),
         ),
-        surfaceTintColor: Theme.of(context).primaryColor,
+        surfaceTintColor: Theme.of(context).colorScheme.primary,
         actions: [
           IconButton(
               onPressed: () {
@@ -109,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                             child: Padding(
                               padding: const EdgeInsets.all(20.0),
                               child: CircularProgressIndicator(
-                                color: Theme.of(context).primaryColor,
+                                color: Theme.of(context).colorScheme.primary,
                               ),
                             ),
                           )
@@ -119,13 +119,13 @@ class _HomePageState extends State<HomePage> {
                             decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Theme.of(context).primaryColor,
+                                  color: Theme.of(context).colorScheme.primary,
                                 ),
                                 borderRadius: BorderRadius.circular(30),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Theme.of(context).primaryColor,
+                                  color: Theme.of(context).colorScheme.primary,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -171,10 +171,12 @@ class _HomePageState extends State<HomePage> {
                     },
                     style: ButtonStyle(
                         backgroundColor: MaterialStatePropertyAll(
-                            Theme.of(context).primaryColor)),
+                            Theme.of(context).colorScheme.surfaceTint)),
                     child: Text(
                       "Create",
-                      style: TextStyle(color: Theme.of(context).canvasColor),
+                      style: TextStyle(
+                          color:
+                              Theme.of(context).colorScheme.onInverseSurface),
                     ),
                   ),
                 ],
@@ -211,7 +213,7 @@ class _HomePageState extends State<HomePage> {
         } else {
           return Center(
             child: CircularProgressIndicator(
-                color: Theme.of(context).primaryColor),
+                color: Theme.of(context).colorScheme.primary),
           );
         }
       },

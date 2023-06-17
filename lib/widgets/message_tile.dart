@@ -34,7 +34,15 @@ class _MessageTileState extends State<MessageTile> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          widget.sentByMe ? const SizedBox(height: 0) : Text(widget.sender),
+          widget.sentByMe
+              ? const SizedBox(height: 0)
+              : Text(
+                  widget.sender.toUpperCase(),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                ),
           Text(
             widget.message,
             softWrap: true,

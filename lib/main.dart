@@ -5,6 +5,7 @@ import 'package:flutter_chat_app/helper/helper_function.dart';
 import 'package:flutter_chat_app/pages/home_page.dart';
 import 'package:flutter_chat_app/pages/login_page.dart';
 import 'package:flutter_chat_app/shared/constants.dart';
+import 'package:dynamic_color/dynamic_color.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,6 +36,8 @@ class MainApp extends StatefulWidget {
 
 class _MainAppState extends State<MainApp> {
   bool _isSignedIn = false;
+  Color fallbackColor = Colors.blue;
+
   @override
   void initState() {
     super.initState();
@@ -55,14 +58,34 @@ class _MainAppState extends State<MainApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        useMaterial3: true,
-        // primaryColor: Constants().PrimaryColor,
-        // dialogTheme: const DialogTheme(surfaceTintColor: Colors.white),
-      ),
-      debugShowCheckedModeBanner: false,
-      home: _isSignedIn ? const HomePage() : const LoginPage(),
+    return DynamicColorBuilder(
+      builder: (ColorScheme? lightDynamic, ColorScheme? darkDynamic) {
+        ColorScheme lightColorScheme;
+        ColorScheme darkColorScheme;
+
+        if (lightDynamic != null && darkDynamic != null) {
+          print("USING DEVICE COLOR SCHEME");
+          lightColorScheme = lightDynamic.harmonized()..copyWith();
+          darkColorScheme = darkDynamic.harmonized()..copyWith();
+        } else {
+          lightColorScheme = ColorScheme.fromSeed(
+            seedColor: fallbackColor,
+          );
+          darkColorScheme = ColorScheme.fromSeed(
+            seedColor: fallbackColor,
+            brightness: Brightness.dark,
+          );
+        }
+
+        return MaterialApp(
+          theme: ThemeData(
+            useMaterial3: true,
+            colorScheme: lightColorScheme,
+          ),
+          debugShowCheckedModeBanner: false,
+          home: _isSignedIn ? const HomePage() : const LoginPage(),
+        );
+      },
     );
   }
 }

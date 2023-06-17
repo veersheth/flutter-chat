@@ -65,7 +65,7 @@ class ChatPageState extends State<ChatPage> {
       body: Stack(
         children: [
           //chat messages
-          // chatMessages(),
+          chatMessages(),
           Container(
             alignment: Alignment.bottomCenter,
             width: double.infinity,
@@ -94,7 +94,7 @@ class ChatPageState extends State<ChatPage> {
                         onPressed: () {
                           sendMessage();
                         },
-                        icon: Icon(Icons.send_rounded))
+                        icon: const Icon(Icons.send_rounded))
                   ],
                 ),
               ),
@@ -107,22 +107,42 @@ class ChatPageState extends State<ChatPage> {
 
   chatMessages() {
     return StreamBuilder(
-        stream: chats,
-        builder: (context, snapshot) {
-          return snapshot.hasData
-              ? ListView.builder(
-                  itemCount: snapshot.data!.docs.length,
-                  itemBuilder: (context, index) {
-                    return MessageTile(
-                        message: snapshot.data!.docs[index]['message'],
-                        sender: snapshot.data!.docs[index]['sender'],
-                        sentByMe: widget.userName ==
-                            snapshot.data!.docs[index]['sender']);
-                  },
-                )
-              : Container();
-        });
+      stream: chats,
+      builder: (context, AsyncSnapshot snapshot) {
+        return snapshot.hasData
+            ? ListView.builder(
+                itemCount: snapshot.data.docs.length,
+                itemBuilder: (context, index) {
+                  // return Container(
+                  //     height: 500,
+                  //     width: 500,
+                  //     color: Colors.blue,
+                  //     child: const Text("Hello"));
+                  // ;
+                  return MessageTile(
+                    message: snapshot.data.docs[index]['message'],
+                    sender: snapshot.data.docs[index]['sender'],
+                    sentByMe:
+                        widget.userName == snapshot.data.docs[index]['sender'],
+                  );
+                },
+              )
+            : Container();
+      },
+    );
   }
 
-  sendMessage() {}
+  sendMessage() {
+    if (messageController.text.isNotEmpty) {
+      Map<String, dynamic> chatMessageData = {
+        "message": messageController.text,
+        "sender": widget.userName,
+        "time": DateTime.now().millisecondsSinceEpoch,
+      };
+      DatabaseService().sendMessage(widget.groupId, chatMessageData);
+      setState(() {
+        messageController.clear();
+      });
+    }
+  }
 }

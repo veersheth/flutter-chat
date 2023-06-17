@@ -67,6 +67,7 @@ class ChatPageState extends State<ChatPage> {
           //chat messages
           chatMessages(),
           Container(
+            margin: const EdgeInsets.only(bottom: 15),
             alignment: Alignment.bottomCenter,
             width: double.infinity,
             child: Padding(

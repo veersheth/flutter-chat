@@ -171,12 +171,6 @@ class _SearchPageState extends State<SearchPage> {
             if (isJoined) {
               setState(() {
                 isJoined = !isJoined;
-              });
-              // ignore: use_build_context_synchronously
-              showSnackbar(context, "Group joined");
-            } else {
-              setState(() {
-                isJoined = !isJoined;
                 Future.delayed(const Duration(seconds: 2), () {
                   nextScreen(
                       context,
@@ -185,6 +179,12 @@ class _SearchPageState extends State<SearchPage> {
                           groupId: groupId,
                           groupName: groupName));
                 });
+              });
+              // ignore: use_build_context_synchronously
+              showSnackbar(context, "Group joined");
+            } else {
+              setState(() {
+                isJoined = !isJoined;
               });
               // ignore: use_build_context_synchronously
               showSnackbar(context, "Left $groupName");

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_chat_app/helper/helper_function.dart';
 import 'package:flutter_chat_app/pages/home_page.dart';
 import 'package:flutter_chat_app/pages/login_page.dart';
@@ -37,6 +38,8 @@ class MainApp extends StatefulWidget {
 class _MainAppState extends State<MainApp> {
   bool _isSignedIn = false;
   Color fallbackColor = Colors.blue;
+
+  //Setting SysemUIOverlay
 
   @override
   void initState() {

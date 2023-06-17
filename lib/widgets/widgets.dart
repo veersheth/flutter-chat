@@ -27,13 +27,13 @@ const kSizedHeight = SizedBox(height: 15);
 void showSnackbar(context, message) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      behavior: SnackBarBehavior.fixed,
-      // margin: const EdgeInsets.all(10),
-      // shape: const RoundedRectangleBorder(
-      //   borderRadius: BorderRadius.all(
-      //     Radius.circular(20),
-      //   ),
-      // ),
+      behavior: SnackBarBehavior.floating,
+      margin: const EdgeInsets.all(10),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(20),
+        ),
+      ),
       content: Text(
         message,
         style: const TextStyle(fontSize: 14),

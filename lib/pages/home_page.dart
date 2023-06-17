@@ -79,11 +79,16 @@ class _HomePageState extends State<HomePage> {
       ),
       drawer: const DrawerWidget(),
       body: groupList(),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           addGroupDialog(context);
         },
-        child: const Icon(Icons.add_rounded, size: 30),
+        icon: Icon(
+          Icons.add_rounded,
+          size: 30,
+          color: Theme.of(context).colorScheme.primary,
+        ),
+        label: Text("Create Group"),
       ),
     );
   }

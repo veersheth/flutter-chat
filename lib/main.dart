@@ -79,9 +79,9 @@ class _MainAppState extends State<MainApp> {
 
         return MaterialApp(
           theme: ThemeData(
-            useMaterial3: true,
-            colorScheme: lightColorScheme,
-          ),
+              useMaterial3: true,
+              colorScheme: lightColorScheme,
+              fontFamily: "Product-Sans"),
           debugShowCheckedModeBanner: false,
           home: _isSignedIn ? const HomePage() : const LoginPage(),
         );
